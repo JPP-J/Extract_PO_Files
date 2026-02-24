@@ -69,18 +69,11 @@ def get_data_lotus(pdf_path):
                     barcode = barcode_match.group(1) if barcode_match else None
 
                     # Extract all numeric values at end
-                    numbers = re.findall(r"\d+\.\d+", line)
+                    numbers = re.findall(r"[\d,]+\.\d+", line)
+                    numbers = [float(n.replace(",", "")) for n in numbers]
 
                     if len(numbers) >= 6:
-                        qty = float(numbers[0])
-                        free_gift = float(numbers[1])
-                        total_qty = float(numbers[2])
-                        price_per_unit = float(numbers[3])
-                        discount = float(numbers[4])
-                        total_price = float(numbers[5])
-                    else:
-                        i += 1
-                        continue
+                        qty, free_gift, total_qty, price_per_unit, discount, total_price = numbers[:6]
 
                     # Extract unit and VAT
                     unit_match = re.search(r"\d+\s+(\S+)\s+([A-Z])\s+\(", line)
@@ -157,7 +150,7 @@ def get_data_lotus(pdf_path):
 
 
 if __name__ == "__main__":
-    pdf_path = r"C:\Users\topde\Downloads\tops\lotus\lotus1.pdf"
+    pdf_path = r"Z:\01_DATA\po\Lotus\Lotus3.pdf"
     # get_data_lotus(pdf_path)
 
     path_dir = os.path.dirname(pdf_path)

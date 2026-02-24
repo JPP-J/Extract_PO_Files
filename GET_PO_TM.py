@@ -159,13 +159,13 @@ def get_data_themall(pdf_path):
 
 
 if __name__ == "__main__":
-    pdf_path = r"C:\Users\topde\Downloads\tops\TM\The mall1.pdf"
-    # get_data_themall(pdf_path)
+    pdf_path = r"Z:\01_DATA\po\The mall\The mall6.pdf"
+    get_data_themall(pdf_path)
 
 
-    path_dir = os.path.dirname(pdf_path)
+    # path_dir = os.path.dirname(pdf_path)
 
-    for i in os.listdir(path_dir):
-        print(i)
-        get_data_themall(os.path.join(path_dir, i))
+    # for i in os.listdir(path_dir):
+    #     print(i)
+    #     get_data_themall(os.path.join(path_dir, i))
    
