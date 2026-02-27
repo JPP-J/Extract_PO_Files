@@ -1,10 +1,10 @@
 import pdfplumber
 
-pdf_path = r"Z:\01_DATA\po\HomePro-New\PO_0000003074_20260225_091029173970.PDF"
+pdf_path = r"Z:\01_DATA\po\ไทวัสดุ\PO_Info (6).pdf"
 # pdf_path = r"Z:\01_DATA\po\ScanFiles\BigC\DOC010725-004.pdf"
 
 with pdfplumber.open(pdf_path) as pdf:
-    page = pdf.pages[166]
+    page = pdf.pages[0]
     text = page.extract_text()
     words = page.extract_words()
     print(text)
